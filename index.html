@@ -2,71 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro | Ayün - Centro de Estimulación y Aprendizajes Tempranos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bienvenido | Ayün</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables de color y configuración */
         :root {
             --color-primary: #1ab3cd;
             --color-secondary: #ff8f00;
-            --color-success: #27ae60;
-            --color-bg-overlay: rgba(255, 255, 255, 0.88); 
-            --radius-lg: 20px;
-            
-            /* VARIABLES DE IMAGEN */
+            --color-bg-overlay: rgba(255, 255, 255, 0.92); 
+            --radius-lg: 24px;
             --url-logo: url('https://lh3.googleusercontent.com/u/0/d/1VIdvg_dcpL3G1teWpE7Kn_qJJr3TSw3Q');
             --url-fondo-pantalla: url('https://lh3.googleusercontent.com/u/0/d/1fpqm7S1xJ7Oz58PAuYbtq0_PgaYQ7O7r');
         }
 
-        /* Base */
         body {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 15px;
+            padding: 20px; /* Espacio para que el contenedor no toque los bordes del cel */
             min-height: 100vh;
-            
-            /* APLICACIÓN DEL FONDO */
-            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), var(--url-fondo-pantalla);
+            background-image: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), var(--url-fondo-pantalla);
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
-            background-repeat: no-repeat;
+            background-attachment: fixed;
+            box-sizing: border-box;
         }
 
-        /* Contenedor principal con efecto cristal */
         #container {
             width: 100%;
-            max-width: 850px;
-            padding: 60px 40px;
+            max-width: 600px; /* Reducido para mejor lectura */
+            padding: 50px 30px;
             background-color: var(--color-bg-overlay);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-radius: var(--radius-lg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-            box-sizing: border-box;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             text-align: center;
-            animation: fadeIn 0.6s ease;
-        }
-
-        /* Logo */
-        #header-logo-container {
-            width: 100%;
-            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-out;
         }
 
         #header-logo {
-            display: block !important;
-            width: 90%; 
-            max-width: 380px;
-            height: 150px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 280px; /* Más pequeño en general para armonía */
+            height: 120px;
+            margin: 0 auto 20px auto;
             background-image: var(--url-logo);
             background-size: contain;
             background-repeat: no-repeat;
@@ -74,68 +57,83 @@
         }
 
         h1 {
-            font-size: 42px;
+            font-size: 36px; /* Bajado de 42px */
             color: var(--color-primary);
             font-weight: 800;
-            margin: 20px 0 10px 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin: 10px 0;
+            line-height: 1.2;
         }
 
         p {
-            font-size: 22px;
+            font-size: 18px; /* Bajado de 22px */
             color: #444;
-            margin-bottom: 40px;
-            line-height: 1.5;
-            font-weight: 500;
+            margin-bottom: 35px;
+            line-height: 1.4;
         }
 
-        /* Botón Principal */
         .btn-bienvenida {
             background-color: var(--color-primary);
             color: white;
-            padding: 25px 60px; 
-            border: none;
-            border-radius: 100px;
+            padding: 20px 40px; 
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 32px;
+            font-size: 22px; /* Bajado de 32px para que no rompa en móviles */
             font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(26, 179, 205, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 15px rgba(26, 179, 205, 0.3);
             text-transform: uppercase;
             text-decoration: none;
             display: inline-block;
+            width: auto;
         }
 
         .btn-bienvenida:hover {
             background-color: var(--color-secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(255, 143, 0, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 143, 0, 0.4);
+        }
+
+        /* AJUSTES ESPECÍFICOS PARA MÓVIL */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            #container {
+                padding: 40px 20px;
+            }
+            h1 {
+                font-size: 28px; /* Tamaño ideal para smartphone */
+            }
+            p {
+                font-size: 16px;
+            }
+            .btn-bienvenida {
+                font-size: 18px;
+                padding: 18px 30px;
+                width: 100%; /* El botón ocupa el ancho en cel para facilitar el click */
+                box-sizing: border-box;
+            }
+            #header-logo {
+                height: 100px;
+                max-width: 200px;
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 32px; }
-            .btn-bienvenida { font-size: 24px; padding: 20px 40px; width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <div id="container">
-        <div id="header-logo-container">
-            <div id="header-logo"></div>
-        </div>
+        <div id="header-logo"></div>
 
         <h1>Bienvenido a AYÜN</h1>
         <p>Centro de Estimulación y Aprendizajes Tempranos.</p>
 
-        <div style="margin-top: 20px;">
-            <a href="https://script.google.com/macros/s/AKfycbwZiVT9TUggLNkpLemhVYRLapUqTQ1JnNGBYdZyDr25GgwTdDtt92pee4chgjzMkxM/exec" class="btn-bienvenida">REGISTRARME</a>
-        </div>
+        <a href="https://script.google.com/macros/s/AKfycbwZiVT9TUggLNkpLemhVYRLapUqTQ1JnNGBYdZyDr25GgwTdDtt92pee4chgjzMkxM/exec" class="btn-bienvenida">REGISTRARME</a>
     </div>
 
 </body>
